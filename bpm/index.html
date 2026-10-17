@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>BPMタップ | ryamabay</title>
+<link rel="icon" href="/icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  :root {
+    --text: #3a3f44;
+    --muted: #6b7178;
+    --water: #3E92B3;
+    --sky: #A8D7E0;
+    --cream: #FAF6EC;
+    --deep: #1f5d74;
+  }
+  body {
+    background: #ffffff;
+    font-family: 'M PLUS Rounded 1c', sans-serif;
+    color: var(--text);
+    min-height: 100vh;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { text-decoration: none; color: inherit; }
+  .wrap { max-width: 960px; margin: 0 auto; }
+
+  header { padding: 28px 24px; display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+  .brand { display: flex; align-items: center; gap: 14px; }
+  .brand img { width: 52px; height: 52px; border-radius: 50%; display: block; }
+  .brand span { font-size: 22px; font-weight: 800; letter-spacing: 0.01em; }
+
+  .x-btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 9px 16px; border-radius: 999px;
+    background: var(--cream); font-size: 14px; font-weight: 700; color: var(--water);
+    transition: background .18s ease, color .18s ease;
+  }
+  .x-btn:hover { background: var(--sky); color: var(--deep); }
+
+  .hero { padding: 40px 24px 24px; }
+  .hero .bar { height: 6px; width: 56px; border-radius: 999px; background: var(--water); margin-bottom: 28px; }
+  .hero h1 { font-size: 40px; font-weight: 800; line-height: 1.45; letter-spacing: 0.01em; }
+  .hero p { margin-top: 14px; font-size: 16px; font-weight: 500; color: var(--muted); line-height: 1.8; }
+
+  main { padding: 12px 24px 24px; }
+  .panel {
+    background: var(--cream); border-radius: 22px; padding: 36px 26px;
+    display: flex; flex-direction: column; align-items: center; gap: 24px;
+  }
+  .readout { text-align: center; }
+  .readout .num { font-size: 88px; font-weight: 800; line-height: 1; color: var(--deep); font-variant-numeric: tabular-nums; }
+  .readout .unit { margin-top: 6px; font-size: 15px; font-weight: 800; letter-spacing: 0.12em; color: var(--water); }
+  .readout .sub { margin-top: 10px; font-size: 13px; font-weight: 500; color: var(--muted); }
+
+  .tap {
+    width: 200px; height: 200px; border-radius: 50%; border: none; cursor: pointer;
+    background: var(--sky); color: var(--deep);
+    font-family: inherit; font-size: 26px; font-weight: 800; letter-spacing: 0.08em;
+    touch-action: manipulation; -webkit-tap-highlight-color: transparent; user-select: none;
+    transition: transform .08s ease, background .18s ease, box-shadow .18s ease;
+  }
+  .tap:hover { box-shadow: 0 10px 24px rgba(31,93,116,0.12); }
+  .tap.hit { transform: scale(0.95); background: var(--water); color: #fff; }
+  .tap:focus-visible { outline: 3px solid var(--water); outline-offset: 4px; }
+
+  .reset {
+    padding: 9px 18px; border-radius: 999px; border: none; cursor: pointer;
+    background: #fff; font-family: inherit; font-size: 14px; font-weight: 700; color: var(--water);
+    transition: background .18s ease, color .18s ease;
+  }
+  .reset:hover { background: var(--sky); color: var(--deep); }
+  .hint { font-size: 13px; font-weight: 500; color: var(--muted); text-align: center; line-height: 1.7; }
+
+  .back { display: inline-block; margin-top: 24px; font-size: 13px; font-weight: 700; color: var(--water); }
+  .back:hover { color: var(--deep); }
+
+  footer { margin-top: 64px; border-top: 1px solid #eee7d6; }
+  footer .wrap { padding: 26px 24px; display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+  footer .copy { font-size: 13px; font-weight: 500; color: #9aa0a6; }
+  footer .x-link { display: inline-flex; align-items: center; gap: 7px; font-size: 13px; font-weight: 700; color: var(--water); transition: color .18s ease; }
+  footer .x-link:hover { color: var(--deep); }
+
+  @media (max-width: 560px) {
+    .hero h1 { font-size: 30px; }
+    .hero { padding: 28px 24px 16px; }
+    .readout .num { font-size: 72px; }
+  }
+</style>
+</head>
+<body>
+
+  <header class="wrap">
+    <a href="/" class="brand">
+      <img src="/icon.png" alt="ryamabay" width="52" height="52" />
+      <span>ryamabay</span>
+    </a>
+    <a href="https://x.com/ryamaba" target="_blank" rel="noopener" class="x-btn">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+      @ryamaba
+    </a>
+  </header>
+
+  <section class="hero wrap">
+    <div class="bar"></div>
+    <h1>BPMタップ</h1>
+    <p>リズムに合わせてタップすると、BPMを計測します。</p>
+  </section>
+
+  <main class="wrap">
+    <div class="panel">
+      <div class="readout" aria-live="polite">
+        <div class="num" id="bpm">--</div>
+        <div class="unit">BPM</div>
+        <div class="sub" id="count">0 タップ</div>
+      </div>
+      <button class="tap" id="tap" type="button">TAP</button>
+      <button class="reset" id="reset" type="button">リセット</button>
+      <p class="hint">スペースキー / Enter でもタップできます。<br>2秒あけると自動でリセットされます。</p>
+    </div>
+    <a href="/" class="back">&larr; WORKS にもどる</a>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <span class="copy">&copy; ryamabay</span>
+      <a href="https://x.com/ryamaba" target="_blank" rel="noopener" class="x-link">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+        @ryamaba
+      </a>
+    </div>
+  </footer>
+
+<script>
+  const RESET_MS = 2000;
+  const MAX_TAPS = 16;
+  const bpmEl = document.getElementById('bpm');
+  const countEl = document.getElementById('count');
+  const tapBtn = document.getElementById('tap');
+  let taps = [];
+  let total = 0;
+
+  function render() {
+    countEl.textContent = total + ' タップ';
+    if (taps.length < 2) { bpmEl.textContent = '--'; return; }
+    const avg = (taps[taps.length - 1] - taps[0]) / (taps.length - 1);
+    bpmEl.textContent = (60000 / avg).toFixed(1);
+  }
+
+  function reset() { taps = []; total = 0; render(); }
+
+  function tap() {
+    const now = performance.now();
+    if (taps.length && now - taps[taps.length - 1] > RESET_MS) { taps = []; total = 0; }
+    taps.push(now);
+    if (taps.length > MAX_TAPS) taps.shift();
+    total++;
+    render();
+    tapBtn.classList.add('hit');
+    setTimeout(() => tapBtn.classList.remove('hit'), 90);
+  }
+
+  tapBtn.addEventListener('pointerdown', (e) => { e.preventDefault(); tap(); });
+  document.getElementById('reset').addEventListener('click', reset);
+  document.addEventListener('keydown', (e) => {
+    if (e.repeat) return;
+    if (e.code === 'Space' || e.code === 'Enter') {
+      if (e.target.id === 'reset') return;
+      e.preventDefault();
+      tap();
+    }
+  });
+</script>
+</body>
+</html>
