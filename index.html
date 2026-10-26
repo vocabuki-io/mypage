@@ -72,8 +72,10 @@
   footer { margin-top: 64px; border-top: 1px solid #eee7d6; }
   footer .wrap { padding: 26px 24px; display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
   footer .copy { font-size: 13px; font-weight: 500; color: #9aa0a6; }
-  footer .x-link { display: inline-flex; align-items: center; gap: 7px; font-size: 13px; font-weight: 700; color: var(--water); transition: color .18s ease; }
-  footer .x-link:hover { color: var(--deep); }
+  footer .links { display: flex; align-items: center; gap: 20px; flex-wrap: wrap; }
+  footer .links a { font-size: 13px; font-weight: 700; color: var(--water); transition: color .18s ease; }
+  footer .links a:hover { color: var(--deep); }
+  footer .x-link { display: inline-flex; align-items: center; gap: 7px; }
 
   @media (max-width: 560px) {
     .hero h1 { font-size: 30px; }
@@ -142,10 +144,13 @@
   <footer>
     <div class="wrap">
       <span class="copy">&copy; ryamabay</span>
-      <a href="https://x.com/ryamaba" target="_blank" rel="noopener" class="x-link">
-        <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-        @ryamaba
-      </a>
+      <div class="links">
+        <a href="/tokushoho/">特定商取引法に基づく表記</a>
+        <a href="https://x.com/ryamaba" target="_blank" rel="noopener" class="x-link">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          @ryamaba
+        </a>
+      </div>
     </div>
   </footer>
 
