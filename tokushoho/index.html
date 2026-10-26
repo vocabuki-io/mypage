@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>特定商取引法に基づく表記 | ryamabay</title>
+<link rel="icon" href="/icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  :root {
+    --text: #3a3f44;
+    --muted: #6b7178;
+    --water: #3E92B3;
+    --sky: #A8D7E0;
+    --cream: #FAF6EC;
+    --deep: #1f5d74;
+  }
+  body {
+    background: #ffffff;
+    font-family: 'M PLUS Rounded 1c', sans-serif;
+    color: var(--text);
+    min-height: 100vh;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { text-decoration: none; color: inherit; }
+  .wrap { max-width: 960px; margin: 0 auto; }
+
+  header { padding: 28px 24px; display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+  .brand { display: flex; align-items: center; gap: 14px; }
+  .brand img { width: 52px; height: 52px; border-radius: 50%; display: block; }
+  .brand span { font-size: 22px; font-weight: 800; letter-spacing: 0.01em; }
+
+  .x-btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 9px 16px; border-radius: 999px;
+    background: var(--cream); font-size: 14px; font-weight: 700; color: var(--water);
+    transition: background .18s ease, color .18s ease;
+  }
+  .x-btn:hover { background: var(--sky); color: var(--deep); }
+
+  .hero { padding: 40px 24px 24px; }
+  .hero .bar { height: 6px; width: 56px; border-radius: 999px; background: var(--water); margin-bottom: 28px; }
+  .hero h1 { font-size: 32px; font-weight: 800; line-height: 1.45; letter-spacing: 0.01em; }
+
+  main { padding: 12px 24px 24px; }
+  .panel { background: var(--cream); border-radius: 22px; padding: 8px 26px; }
+  dl { display: grid; grid-template-columns: 220px 1fr; }
+  dt, dd { padding: 18px 0; font-size: 15px; line-height: 1.8; border-top: 1px solid #eee7d6; }
+  dl > :nth-child(-n+2) { border-top: none; }
+  dt { font-weight: 800; padding-right: 20px; }
+  dd { font-weight: 500; }
+  .todo { color: #c0392b; font-weight: 800; }
+
+  .back { display: inline-block; margin-top: 24px; font-size: 13px; font-weight: 700; color: var(--water); }
+  .back:hover { color: var(--deep); }
+
+  footer { margin-top: 64px; border-top: 1px solid #eee7d6; }
+  footer .wrap { padding: 26px 24px; display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+  footer .copy { font-size: 13px; font-weight: 500; color: #9aa0a6; }
+  footer .links { display: flex; align-items: center; gap: 20px; flex-wrap: wrap; }
+  footer .links a { font-size: 13px; font-weight: 700; color: var(--water); transition: color .18s ease; }
+  footer .links a:hover { color: var(--deep); }
+  footer .x-link { display: inline-flex; align-items: center; gap: 7px; }
+
+  @media (max-width: 560px) {
+    .hero h1 { font-size: 24px; }
+    .hero { padding: 28px 24px 16px; }
+    dl { grid-template-columns: 1fr; }
+    dt { padding: 18px 0 2px; }
+    dd { padding: 0 0 18px; border-top: none; }
+    dl > dt:first-child { padding-top: 18px; }
+  }
+</style>
+</head>
+<body>
+
+  <header class="wrap">
+    <a href="/" class="brand">
+      <img src="/icon.png" alt="ryamabay" width="52" height="52" />
+      <span>ryamabay</span>
+    </a>
+    <a href="https://x.com/ryamaba" target="_blank" rel="noopener" class="x-btn">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+      @ryamaba
+    </a>
+  </header>
+
+  <section class="hero wrap">
+    <div class="bar"></div>
+    <h1>特定商取引法に基づく表記</h1>
+  </section>
+
+  <main class="wrap">
+    <div class="panel">
+      <dl>
+        <dt>販売事業者</dt>
+        <dd><span class="todo">【要記入】</span></dd>
+
+        <dt>運営統括責任者</dt>
+        <dd><span class="todo">【要記入】</span></dd>
+
+        <dt>所在地</dt>
+        <dd>請求があった場合には遅滞なく開示いたします。</dd>
+
+        <dt>電話番号</dt>
+        <dd>請求があった場合には遅滞なく開示いたします。</dd>
+
+        <dt>メールアドレス</dt>
+        <dd><span class="todo">【要記入】</span></dd>
+
+        <dt>販売価格</dt>
+        <dd>各商品の購入ページに表示しています（表示価格は消費税込みです）。</dd>
+
+        <dt>商品代金以外の必要料金</dt>
+        <dd>インターネット接続料金、通信料金はお客様のご負担となります。</dd>
+
+        <dt>支払方法</dt>
+        <dd>クレジットカード決済（Stripe）</dd>
+
+        <dt>支払時期</dt>
+        <dd>ご購入手続き完了時にお支払いが確定します。</dd>
+
+        <dt>商品の引渡時期</dt>
+        <dd>決済完了後、すぐにご利用いただけます。</dd>
+
+        <dt>返品・キャンセル</dt>
+        <dd>デジタルコンテンツの性質上、購入後の返品・返金・キャンセルはお受けしておりません。</dd>
+
+        <dt>動作環境</dt>
+        <dd>最新版の主要ブラウザ（Chrome、Safari、Edge、Firefox）でご利用ください。</dd>
+      </dl>
+    </div>
+    <a href="/" class="back">&larr; トップにもどる</a>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <span class="copy">&copy; ryamabay</span>
+      <div class="links">
+        <a href="/tokushoho/">特定商取引法に基づく表記</a>
+        <a href="https://x.com/ryamaba" target="_blank" rel="noopener" class="x-link">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          @ryamaba
+        </a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
